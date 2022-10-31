@@ -4,12 +4,19 @@
 @tailwind components;
 @tailwind utilities;
 
+*,
+a,
+html,
+p {
+    font-family: 'DM Sans', sans-serif;
+}
+
 @layer components {
     .debug {
         @apply border border-red-500
     }
 
-    .debug > * {
+    .debug>* {
         @apply border border-red-500
     }
 }
