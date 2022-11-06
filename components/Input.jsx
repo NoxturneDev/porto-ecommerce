@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Search } from "./Icons"
 import { Arrow } from "./Icons"
 
-export function Input({ placeholder = "placeholder", className, ...props }) {
+export function Input({ placeholder = "placeholder", search='true', className, ...props }) {
     return (
         <div className={`flex items-center justify-center  h-max transition-smooth-medium min-w-max w-[15rem] border-b-2 border-b-basic-200 hover:placeholder-basic-300  py-3 ${className ? className : ''}`} {...props}>
             <input
@@ -11,10 +11,15 @@ export function Input({ placeholder = "placeholder", className, ...props }) {
                 placeholder={placeholder}
                 className={`grow outline-none  w-full h-full `}
             />
-            <span className="h-full ">
+
+            {
+                search =='true' ?
+                <span className="h-full ">
                 {/* TODO: change to button submit form, it can be used to search query button submit and so on */}
                 <Search size={16} />
-            </span>
+            </span> : ""
+             }
+            
         </div>
     )
 }
