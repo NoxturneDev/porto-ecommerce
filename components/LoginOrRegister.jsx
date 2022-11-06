@@ -30,20 +30,20 @@ const LoginOrRegister = ({ loginOrRegister = 'login' }) => {
                 <h1 className="text-4xl mb-6">My account</h1>
                 <div className="rounded flex items-center justify-center mb-8 bg-basic-300 w-1/2 p-1 gap-2">
                     <Link
-                        href='/account/login'
-                        className={`flex items-center justify-center rounded-sm  w-1/2 ${loginOrRegister == 'login' ? 'bg-basic-200' : ""} p-1`}
+                        href='/account'
+                        className={`flex items-center justify-center rounded-sm  w-1/2 ${loginOrRegister == 'login' ? 'bg-basic-200' : "text-white"} p-1`}
                     >
                         <span className="text-md ">Sign in</span>
                     </Link>
                     <Link
                         href="/account/register"
-                        className={`flex items-center justify-center rounded-sm  w-1/2 ${loginOrRegister == 'register' ? 'bg-basic-200' : ""} p-1`}
+                        className={`flex items-center justify-center rounded-sm  w-1/2 ${loginOrRegister == 'register' ? 'bg-basic-200' : "text-white"} p-1`}
                     >
                         <span className="text-md  ">Register</span>
                     </Link>
                 </div>
                 <div className="w-full flex flex-col justify-center items-center gap-2">
-                    <div className="flex flex-col items-start gap-6">
+                    <div className="flex flex-col items-start gap-4">
                         <Input placeholder="Email" search="false" />
                         <Input placeholder="Password" search="false" />
                         {/* register only input */}
@@ -56,8 +56,6 @@ const LoginOrRegister = ({ loginOrRegister = 'login' }) => {
                     <Button className="mt-8" onClick={buttonLoginOrRegisterOnCLickHandler}>SIGN IN</Button>
                     <Link href="/forgot-password" className="mt-8">Have you forgotten your password?</Link>
                 </div>
-
-
             </div>
         </Fragment>
     )
