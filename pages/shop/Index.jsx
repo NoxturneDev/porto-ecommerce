@@ -1,5 +1,5 @@
 import { Search } from "../../components/Icons"
-import ProductsCard from "../../components/ProductsCard"
+import Card from "../../components/Card"
 
 function Index({ products }) {
     return (
@@ -24,7 +24,7 @@ function Index({ products }) {
             <div className="grow debug grid grid-cols-3 grid-rows-2 gap-2 max-h-2/3">
                 {products && products.map(data => {
                     return (
-                        <ProductsCard products={data} key={data.id} />
+                        <Card data={data} key={data.id} />
                     )
                 })}
             </div>

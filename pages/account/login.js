@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import LoginOrRegister from '../../containers/LoginOrRegister'
+import LoginOrRegister from '../../components/LoginOrRegister'
 
 const register = () => {
 return (
