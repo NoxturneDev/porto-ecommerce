@@ -5,9 +5,13 @@ import { Button } from "./Button"
 
 const LoginOrRegister = ({ loginOrRegister = 'login' }) => {
 
-    // Psudocode For Logic
-    const loginHandler = () => {
-        console.log("login")
+    const loginHandler = async () => {
+        const loginAPI = await fetch('http://localhost:3000/api/login')
+
+
+        loginAPI.then(response => {
+            console.log(response.json())
+        })
     }
 
 
