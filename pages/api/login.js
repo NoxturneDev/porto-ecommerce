@@ -1,3 +1,3 @@
 export default function handler(req, res) {
-    res.json({text : 'anjay mabar gan'})
+    res.send({text : 'anjay mabar gan'})
 }

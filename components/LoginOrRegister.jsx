@@ -8,10 +8,7 @@ const LoginOrRegister = ({ loginOrRegister = 'login' }) => {
     const loginHandler = async () => {
         const loginAPI = await fetch('http://localhost:3000/api/login')
 
-
-        loginAPI.then(response => {
-            console.log(response.json())
-        })
+        // loginAPI.then(res => console.log(res))
     }
 
 

@@ -4,7 +4,7 @@ import { Arrow } from "./Icons"
 
 export function Input({ placeholder = "placeholder", search='true', className, ...props }) {
     return (
-        <div className={`flex items-center justify-center  h-max transition-smooth-medium max-w-full w-[30rem] border-b-2 border-b-basic-200 hover:placeholder-basic-300  py-3 ${className ? className : ''}`} {...props}>
+        <div className={`flex items-center justify-center  h-max transition-smooth-medium min-w-[20rem] w-4/5 max-w-[30rem] border-b-2 border-b-basic-200 hover:placeholder-basic-300  py-3 ${className ? className : ''}`} {...props}>
             <input
                 type="text"
                 name=""
