@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Search = ({ size = 16, color = "black",  }) => {
+export const Search = ({ size = 16, color = "black", }) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
@@ -45,6 +45,36 @@ export const Account = ({ size = 16, color = "black" }) => {
         </svg>
     )
 }
+
+export const Plus = ({ size = 16, color = "black" }) => {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
+            className='cursor-pointer'
+            style={{
+                width: `${typeof (size) === Number ? toString(size) : size}px`,
+                height: `${typeof (size) === Number ? toString(size) : size}px`,
+                color: color
+            }}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
+        </svg>
+    )
+}
+
+export const Minus = ({ size = 16, color = "black" }) => {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
+            className='cursor-pointer'
+            style={{
+                width: `${typeof (size) === Number ? toString(size) : size}px`,
+                height: `${typeof (size) === Number ? toString(size) : size}px`,
+                color: color
+            }}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12h-15" />
+        </svg>
+    )
+}
+
+
 
 export const Arrow = ({ size = 16, color = "black", type = "down" }) => {
     switch (type) {
@@ -103,3 +133,88 @@ export const Arrow = ({ size = 16, color = "black", type = "down" }) => {
             )
     }
 }
+
+export const Socials = ({ size = 16, color = "black", type = "instagram" }) => {
+    switch (type) {
+        case 'instagram':
+            return (
+                <svg
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
+                    className='cursor-pointer'
+                    style={{
+                        width: `${typeof (size) === Number ? toString(size) : size}px`,
+                        height: `${typeof (size) === Number ? toString(size) : size}px`,
+                        color: color
+                    }}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+                </svg>
+            )
+        case 'gmail':
+            return (
+                <svg
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"
+                    className='cursor-pointer'
+                    style={{
+                        width: `${typeof (size) === Number ? toString(size) : size}px`,
+                        height: `${typeof (size) === Number ? toString(size) : size}px`,
+                        color: color
+                    }}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                </svg>
+            )
+        case 'facebook':
+            return (
+                <svg
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
+                    className='cursor-pointer'
+                    style={{
+                        width: `${typeof (size) === Number ? toString(size) : size}px`,
+                        height: `${typeof (size) === Number ? toString(size) : size}px`,
+                        color: color
+                    }}>
+
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+            )
+        case 'twitter':
+            return (
+                <svg
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
+                    className='cursor-pointer'
+                    style={{
+                        width: `${typeof (size) === Number ? toString(size) : size}px`,
+                        height: `${typeof (size) === Number ? toString(size) : size}px`,
+                        color: color
+                    }}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                </svg>
+            )
+        case 'linkedin':
+            return (
+                <svg
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
+                    className='cursor-pointer'
+                    style={{
+                        width: `${typeof (size) === Number ? toString(size) : size}px`,
+                        height: `${typeof (size) === Number ? toString(size) : size}px`,
+                        color: color
+                    }}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                </svg>
+            )
+        case 'github':
+            return (
+                <svg
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
+                    className='cursor-pointer'
+                    style={{
+                        width: `${typeof (size) === Number ? toString(size) : size}px`,
+                        height: `${typeof (size) === Number ? toString(size) : size}px`,
+                        color: color
+                    }}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                </svg>
+            )
+    }
+}
+
