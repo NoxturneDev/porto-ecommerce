@@ -1,5 +1,5 @@
-import Card from "../../components/Card"
-import { Input , Dropdown} from "../../components/Input"
+import Card from "@/components/Card"
+import { Input , Dropdown} from "@/components/Input"
 
 function Index({ products }) {
     return (
