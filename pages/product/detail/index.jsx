@@ -1,10 +1,28 @@
-import { Fragment } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import Image from 'next/image'
+import Card from "@/components/Card"
 import { Button } from "@/components/Button"
 import { Socials, Plus, Minus } from "@/icons"
 
 
-function index({ products }) {
+function index({ products, recommendation }) {
+    const [selectedInformation, setSelectedInformation] = useState('')
+
+    const handleInformation = (e) => {
+        const {dataset} = e.target
+
+        // select info based on clickd information then find it in products object data
+        for(const d in products){
+            if(dataset === products[dataset]){
+                console.log(dataset)
+            }
+        }
+    }
+
+    useEffect(() => {
+        setSelectedInformation(products.description)
+    }, [])
+
     return (
         <Fragment>
             <section className="grid grid-cols-5 grid-rows-1 w-full px-4 py-6  min-h-min h-[85vh]">
@@ -72,6 +90,43 @@ function index({ products }) {
                     </aside>
                 </section>
             </section>
+            {/* detailed information */}
+            <section className="flex flex-col px-8 h-max pb-12">
+                {/* header */}
+                <nav className="flex justify-start items-center gap-4 h-12 border-b border-b-basic-300 w-full py-4 mb-8">
+                    <h1
+                        className="font-medium cursor-pointer" data-infromation="description"
+                        onClick={e => handleInformation(e)}
+                    >
+                        Description
+                    </h1>
+                    <h1
+                        className="font-medium cursor-pointer" data-infromation="additional"
+                        onClick={e => handleInformation(e)}
+                    >
+                        Additional Information
+                    </h1>
+                    <h1
+                        className="font-medium cursor-pointer" data-infromation="review"
+                        onClick={e => handleInformation(e)}
+                    >
+                        Review(0)
+                    </h1>
+                </nav>
+                <section>
+                    {/* clicked information */}
+                    {selectedInformation ? selectedInformation : 'Loading...'}
+                </section>
+            </section>
+            {/* recommendation items (similar items) */}
+            <h1 className='ml-8 font-bold text-2xl text-basic-300'>Similar Items</h1>
+            <section className="flex gap-6 justify-center items-center w-full px-8 h-max py-4 my-8">
+                {recommendation && recommendation.products.map(prod => {
+                    return (
+                        <Card data={prod} key={prod.title} />
+                    )
+                })}
+            </section>
         </Fragment>
     )
 }
@@ -86,13 +141,52 @@ export async function getStaticProps() {
                 category: 'Jewelry',
                 title: 'Poseidon Necklace',
                 description: 'Poseidon used necklace for almost 1000 year and its really expensive nowadays so you need tobuy it now or you will never get this change anymore so better you damn buy it right now you goofy ahh',
-                price: '1000'
-            }
+                price: '1000',
+                additional : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, voluptate.',
+                review : 'there is no review yet for this product',
+            },
         ]
     }
+
+    const recommendationProducts = {
+        products: [
+            {
+                category: 'Jewelry',
+                title: 'Poseidon Necklace',
+                description: 'Poseidon used necklace for almost 1000 year and its really expensive nowadays so you need tobuy it now or you will never get this change anymore so better you damn buy it right now you goofy ahh',
+                price: '1000'
+            },
+            {
+                category: 'Jewelry',
+                title: 'Poseidon Necklace',
+                description: 'Poseidon used necklace for almost 1000 year and its really expensive nowadays so you need tobuy it now or you will never get this change anymore so better you damn buy it right now you goofy ahh',
+                price: '1000'
+            },
+            {
+                category: 'Jewelry',
+                title: 'Poseidon Necklace',
+                description: 'Poseidon used necklace for almost 1000 year and its really expensive nowadays so you need tobuy it now or you will never get this change anymore so better you damn buy it right now you goofy ahh',
+                price: '1000'
+            },
+            {
+                category: 'Jewelry',
+                title: 'Poseidon Necklace',
+                description: 'Poseidon used necklace for almost 1000 year and its really expensive nowadays so you need tobuy it now or you will never get this change anymore so better you damn buy it right now you goofy ahh',
+                price: '1000'
+            },
+            {
+                category: 'Jewelry',
+                title: 'Poseidon Necklace',
+                description: 'Poseidon used necklace for almost 1000 year and its really expensive nowadays so you need tobuy it now or you will never get this change anymore so better you damn buy it right now you goofy ahh',
+                price: '1000'
+            },
+        ]
+    }
+
     return {
         props: {
-            products: data.products[0]
+            products: data.products[0],
+            recommendation: recommendationProducts
         }
     }
 }
