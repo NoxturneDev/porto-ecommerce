@@ -1,15 +1,11 @@
-import commerce from "@/utils/commerce"
+import { config } from "@/utils/commerce"
+import axios from "axios"
 
 export default async function productHandler(req, res) {
-    const { method } = req
+    const fetch = await axios("https://api.chec.io/v1/products", {
+        method: 'GET',
+        headers: config.public.headers,
+    })
 
-    if (method === "GET") {
-        try {
-            const datas = await commerce.products.list()
-
-            res.json({ msg: "tested", data: datas })
-        } catch (err) {
-            console.error(err)
-        }
-    }
+    res.status(fetch.status).json({ products: fetch.data })
 }
