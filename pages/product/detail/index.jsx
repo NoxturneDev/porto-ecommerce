@@ -4,7 +4,6 @@ import Card from "@/components/Card"
 import { Button } from "@/components/Button"
 import { Socials, Plus, Minus } from "@/icons"
 
-
 function index({ products, recommendation }) {
     const [selectedInformation, setSelectedInformation] = useState('')
     const [clicked, setClicked] = useState('')
@@ -22,8 +21,6 @@ function index({ products, recommendation }) {
                 handleClicked(e.target)
             }
         }
-        
-        
     }
 
     const handleClicked = (element) => {
