@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chec/commerce.js": "^2.8.0",
     "@heroicons/react": "^2.0.12",
     "@mui/icons-material": "^5.10.9",
     "class-variance-authority": "^0.2.4",

@@ -4,23 +4,39 @@ import Card from "@/components/Card"
 import { Button } from "@/components/Button"
 import { Socials, Plus, Minus } from "@/icons"
 
-
 function index({ products, recommendation }) {
     const [selectedInformation, setSelectedInformation] = useState('')
+    const [clicked, setClicked] = useState('')
 
     const handleInformation = (e) => {
-        const {dataset} = e.target
-
+        // get the dataset in html 
+        const { information } = e.target.dataset
+        e.target.classList.add("text-brand")
+        
         // select info based on clickd information then find it in products object data
-        for(const d in products){
-            if(dataset === products[dataset]){
-                console.log(dataset)
+        for (const d in products) {
+            if (information === d) {
+                setSelectedInformation(products[d])
+                setClicked(e.target)
+                handleClicked(e.target)
             }
         }
     }
 
+    const handleClicked = (element) => {
+        // undefined exception
+        if(!clicked) return
+        console.log(element)
+
+        if(element !== clicked){
+            clicked.classList.remove("text-brand")
+        }
+    }
+
     useEffect(() => {
-        setSelectedInformation(products.description)
+        if (!selectedInformation) {
+            setSelectedInformation(products.description)
+        }
     }, [])
 
     return (
@@ -91,29 +107,29 @@ function index({ products, recommendation }) {
                 </section>
             </section>
             {/* detailed information */}
-            <section className="flex flex-col px-8 h-max pb-12">
+            <section className="flex flex-col px-8 min-h-max h-48 pb-12">
                 {/* header */}
-                <nav className="flex justify-start items-center gap-4 h-12 border-b border-b-basic-300 w-full py-4 mb-8">
+                <nav className="flex justify-start items-center gap-4 h-12 border-b-2 border-b-basic-200 w-full py-4 mb-8">
                     <h1
-                        className="font-medium cursor-pointer" data-infromation="description"
+                        className="font-medium cursor-pointer " data-information="description"
                         onClick={e => handleInformation(e)}
                     >
                         Description
                     </h1>
                     <h1
-                        className="font-medium cursor-pointer" data-infromation="additional"
+                        className="font-medium cursor-pointer " data-information="additional"
                         onClick={e => handleInformation(e)}
                     >
                         Additional Information
                     </h1>
                     <h1
-                        className="font-medium cursor-pointer" data-infromation="review"
+                        className="font-medium cursor-pointer " data-information="review"
                         onClick={e => handleInformation(e)}
                     >
                         Review(0)
                     </h1>
                 </nav>
-                <section>
+                <section className="min-h-max">
                     {/* clicked information */}
                     {selectedInformation ? selectedInformation : 'Loading...'}
                 </section>
@@ -142,8 +158,8 @@ export async function getStaticProps() {
                 title: 'Poseidon Necklace',
                 description: 'Poseidon used necklace for almost 1000 year and its really expensive nowadays so you need tobuy it now or you will never get this change anymore so better you damn buy it right now you goofy ahh',
                 price: '1000',
-                additional : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, voluptate.',
-                review : 'there is no review yet for this product',
+                additional: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, voluptate.',
+                review: 'there is no review yet for this product',
             },
         ]
     }
@@ -152,31 +168,31 @@ export async function getStaticProps() {
         products: [
             {
                 category: 'Jewelry',
-                title: 'Poseidon Necklace',
+                title: 'Poseidon Necklace 1',
                 description: 'Poseidon used necklace for almost 1000 year and its really expensive nowadays so you need tobuy it now or you will never get this change anymore so better you damn buy it right now you goofy ahh',
                 price: '1000'
             },
             {
                 category: 'Jewelry',
-                title: 'Poseidon Necklace',
+                title: 'Poseidon Necklace 2',
                 description: 'Poseidon used necklace for almost 1000 year and its really expensive nowadays so you need tobuy it now or you will never get this change anymore so better you damn buy it right now you goofy ahh',
                 price: '1000'
             },
             {
                 category: 'Jewelry',
-                title: 'Poseidon Necklace',
+                title: 'Poseidon Necklace 3',
                 description: 'Poseidon used necklace for almost 1000 year and its really expensive nowadays so you need tobuy it now or you will never get this change anymore so better you damn buy it right now you goofy ahh',
                 price: '1000'
             },
             {
                 category: 'Jewelry',
-                title: 'Poseidon Necklace',
+                title: 'Poseidon Necklace 4',
                 description: 'Poseidon used necklace for almost 1000 year and its really expensive nowadays so you need tobuy it now or you will never get this change anymore so better you damn buy it right now you goofy ahh',
                 price: '1000'
             },
             {
                 category: 'Jewelry',
-                title: 'Poseidon Necklace',
+                title: 'Poseidon Necklace 5',
                 description: 'Poseidon used necklace for almost 1000 year and its really expensive nowadays so you need tobuy it now or you will never get this change anymore so better you damn buy it right now you goofy ahh',
                 price: '1000'
             },
